@@ -43,3 +43,7 @@ python3 research/five-input-circuits/catalogue.py research/five-input-circuits/c
 ```
 
 The lookup returns gates in evaluation order. Each triple is an operation code followed by two wire indices. Codes 0 through 4 mean AND, OR, left AND NOT right, right AND NOT left, and XOR. Input wires come first. The final gate is the output.
+
+## A six-input application
+
+The assigned L-meta-13114 asks for an advantage from NOT on the table `feeefaeafeccf080`. Its minimum is ten gates even when XOR is available. Restricting the De Morgan dual gives 256 nontrivial subcubes whose lower bounds come from the smaller catalogue. The search rules out nine gates, and a ten-gate AND/OR circuit agrees on all 64 assignments. The replay checks both facts. The ten-gate witness comes from the independently checked positive submission by stasana666. [Six-input replay](six-application.py) · [Upstream positive proof](https://github.com/open-goat/pequalnp-proofs/pull/17601)
