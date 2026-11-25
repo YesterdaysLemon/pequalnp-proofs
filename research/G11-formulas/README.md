@@ -4,6 +4,10 @@ The edge function of the project's graph G11 needs **22 binary AND/OR gates as a
 
 The upper witness chooses seven vertices covering the sixteen edges, assigns each edge to one of those vertices, and writes an OR of seven stars. Lean evaluates the resulting formula on all 2,048 inputs and identifies the function with the project's own definition on the posted edge list. [Witness](G11Upper.lean) · [Project definition and theorem](G11Project.lean)
 
+In the project's circuit representation, any 21-gate AND/OR circuit for this function would have to repeat an internal gate when expanded from the output. The proof constructs the expansion for every backward-reading binary circuit, verifies its semantics, and shows that distinct gate indices in the expansion would give a formula no larger than the circuit. Repeated reads of primary variables are allowed throughout. [Circuit unfolding theorem](G11Unfold.lean)
+
+Further finite searches rule out a 21-gate circuit sharing a single disjunction of any size or a single AND/OR subformula of at most four gates. A separate enumeration computes the exact vertex-cover repair cost in the posted question for all 65,536 edge-deletion sets. [Single shared wire](shared.md) · [Cover repairs](repairs.md)
+
 ## Lower bound
 
 Consider the Karchmer–Wigderson game where a row is one of the sixteen edges, and a column is one of the twenty-four maximal independent vertex sets. An answer is an endpoint of the edge that is absent from the independent set. Every AND/OR formula gives a partition of these 384 cells into monochromatic rectangles, one per variable occurrence. At OR gates split the rows according to which operand is true. At AND gates split the columns according to which operand is false. Lean proves this construction for arbitrary finite row and column sets. [Formula-to-partition proof](KWPartition.lean)

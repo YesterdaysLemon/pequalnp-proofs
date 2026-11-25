@@ -3,9 +3,9 @@ set -euo pipefail
 src=$(cd "$(dirname "$0")" && pwd -P)
 repo=$(cd "$src/../.." && pwd -P)
 cd "$repo/lean"
-lake build PEqualNP.Defs.EdgeOwnership
+lake build PEqualNP.Defs.TopForm
 scratch=$(mktemp -d)
-modules=(KWPartition KWEncoding KWSemantics G11Game G11Upper G11Bridge G11Project)
+modules=(KWPartition KWEncoding KWSemantics G11Game G11Upper G11Bridge G11Project G11Unfold)
 cleanup() {
     for name in "${modules[@]}"; do rm -f -- "$scratch/$name.lean" "$scratch/$name.olean"; done
     rm -f -- "$scratch/formula.lrat" "$scratch/formula.cnf" "$scratch/Report.lean"
