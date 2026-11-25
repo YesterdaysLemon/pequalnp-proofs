@@ -1,0 +1,36 @@
+[
+  {
+    "mask": 1,
+    "multiplicity": 1,
+    "edges": [
+      [
+        0,
+        1
+      ]
+    ],
+    "full": {
+      "lower": 1,
+      "status": "SAT",
+      "visits": 2,
+      "gates": [
+        [
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    "mono": {
+      "lower": 1,
+      "status": "SAT",
+      "visits": 2,
+      "gates": [
+        [
+          0,
+          0,
+          1
+        ]
+      ]
+    }
+  }
+]
