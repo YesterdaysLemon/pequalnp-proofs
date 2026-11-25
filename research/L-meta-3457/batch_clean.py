@@ -249,7 +249,7 @@ def main():
             for reverse in (False, True):
                 old = dual_circuit(n, edges, reverse)
                 check(n, edges, old, False)
-                new, bound, mandatory_bound = clean(n, edges, old, verify_optimum=(n == 2))
+                new, bound, mandatory_bound = clean(n, edges, old, verify_optimum=True)
                 check(n, edges, new, True)
                 trials += 1
                 paid += bound <= len(old.gates)

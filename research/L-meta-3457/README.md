@@ -36,7 +36,7 @@ This gives a checkable sufficient condition for the posted size bound. For a cho
 | 2 | 15 | 30 | 14 | 30 | 30 |
 | 3 | 334 | 668 | 68 | 650 | 668 |
 
-The two circuits per graph conjoin the clauses of its maximal independent sets in opposite orders, starting with a gate that requires a point and a line. For each circuit the check tests every input, every AND on every singleton and nonedge, and the gate-count inequality. For two points per side it also enumerates all optional batches and compares their minimum with the flow result. All 18 three-point trials outside the counting condition have five edges and nine input gates. Their optimized upper bound is eleven and the constructed circuit uses nine. These tests cover these two circuit families per graph. Whether every circuit in the posted problem has a no-larger clean realization remains open here.
+The two circuits per graph conjoin the clauses of its maximal independent sets in opposite orders, starting with a gate that requires a point and a line. For each circuit the check tests every input, every AND on every singleton and nonedge, and the gate-count inequality. It also enumerates all optional batches in every trial and compares their minimum with the flow result. The 668 three-point trials have 7,314 such choices in total. All 18 three-point trials outside the counting condition have five edges and nine input gates. Their optimized upper bound is eleven and the constructed circuit uses nine. These tests cover these two circuit families per graph. Whether every circuit in the posted problem has a no-larger clean realization remains open here.
 
 From the checkout's `lean` directory, after building project dependencies, run
 
