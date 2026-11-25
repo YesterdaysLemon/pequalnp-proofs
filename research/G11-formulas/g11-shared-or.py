@@ -11,11 +11,11 @@ base=Path(__file__).resolve().parent
 spec=spec_from_file_location("kw",base/"graph-kw.py")
 kw=module_from_spec(spec);sys.dont_write_bytecode=True;spec.loader.exec_module(kw)
 
-def build(S):
+def build(S,*,linear_cells=False):
     pos=[(1<<a)|(1<<b) for a,b in kw.edges]
     cols,raw=kw.structure(kw.edges)
     A=[i for i,e in enumerate(pos) if S&e];B=[j for j,c in enumerate(cols) if not S&c]
-    return build_for(pos,cols,raw,A,B,23-S.bit_count())
+    return build_for(pos,cols,raw,A,B,23-S.bit_count(),linear_cells=linear_cells)
 
 def build_for(pos,cols,raw,A,B,budget,*,linear_cells=False):
     if len(B)<=1:return "one column"

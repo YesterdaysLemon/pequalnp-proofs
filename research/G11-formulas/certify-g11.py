@@ -28,7 +28,7 @@ def problems(signatures):
     if signatures is None:
         for mask in sorted(range(1, 2048), key=lambda s: (s.bit_count(), s)):
             if mask.bit_count() >= 2:
-                yield str(mask), lambda mask=mask: shared.build(mask)
+                yield str(mask), lambda mask=mask: shared.build(mask, linear_cells=True)
         return
     rows = [(1 << a) | (1 << b) for a, b in shared.kw.edges]
     columns, patterns = shared.kw.structure(shared.kw.edges)
