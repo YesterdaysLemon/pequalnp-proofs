@@ -1,0 +1,10 @@
+variables 0 1 2 3 4 5; positives 5; negatives 6
+6 = | 3 0
+7 = & 5 2
+8 = & 6 4
+9 = | 7 3
+10 = | 8 2
+11 = & 9 0
+12 = & 10 1
+13 = | 12 11
+SAT binary 8 available NOT 0 free signs 0 visits 11737 wire values 262

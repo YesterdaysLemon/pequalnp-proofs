@@ -21,7 +21,7 @@ Choose a retained input and fix its entire matching pair to $(1,0)$. The first g
 
 In any live computation with a nonconstant restricted output, $t$ distinct live wires fixed to constants save at least $t$ later binary gates. Follow the live wires forward. A gate reading a constant becomes a unary operation or a constant. Two constant operands can disappear at once only when their replacement is itself constant, so the net decrease in the count of live constant wires is at most one per such gate. A gate with two nonconstant operands cannot decrease this count. The restricted output is nonconstant, so the final count is zero. [Formal restriction lemma](FamilyLive.lean)
 
-The restriction computes $F_{n-1}$. For $n\ge3$, this proves a saving of at least three gates. In the base case $F_2$, four essential inputs are present initially. The first gate retains an operand, so at least four wires remain live afterward. Reducing that number to one requires at least three more binary gates. Thus $F_2$ needs four and $F_n$ needs at least $4+3$n-2$=3n-2$.
+The restriction computes $F_{n-1}$. For $n\ge3$, this proves a saving of at least three gates. In the base case $F_2$, four essential inputs are present initially. The first gate retains an operand, so at least four wires remain live afterward. Reducing that number to one requires at least three more binary gates. Thus $F_2$ needs four and $F_n$ needs at least $4+3(n-2)=3n-2$.
 
 For the upper bound, compute the conjunction of the first $n-1$ of the $a_i$. Place it in
 
