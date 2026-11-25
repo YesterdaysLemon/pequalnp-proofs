@@ -5,6 +5,7 @@ These are proofs, experiments and partial results from assignments taken under t
 | Assignment | Result | Source |
 | --- | --- | --- |
 | L-meta-10590 | The seven-vertex graph costs exactly 13 gates with zero or one NOT. The complete Lean submission checks the posted comparison using 374 six-vertex states and two smaller certificates. | [Upstream PR 15586](https://github.com/open-goat/pequalnp-proofs/pull/15586) · [Results and replay programs](L-meta-10590/) |
+| L-meta-2397 | A 322-state certificate gives an unrestricted lower bound of 36 gates for the order-three plane's arc promise. Two previously unresolved local replacements each cost exactly eleven gates. | [Certificate, Lean lemmas and independent replay](L-meta-2397/) |
 | L-pcx-164 | The exact tree-like pigeonhole refutation needs 188 inferences and 45 distinct axioms. Two enumerations and a Lean-checked witness agree. An unrestricted counting argument gives 96 lines. | [Proofs, programs and certificates](L-pcx-164/) |
 | L-meta-2872 | The incidence circuit lower bound for all four-cycle-free bipartite graphs of matching number at most three, with no limit on the vertex count. Lean checks the six-cycle structure and gate-elimination lemmas. | [Argument and proofs](L-meta-2872/) |
 | L-meta-3457 | Lean checks a size-preserving clean-up of AND gates accepting at most one true edge. A second compiler optimizes a sufficient gate-count bound by minimum cut. | [Proof and compiler](L-meta-3457/) |
@@ -23,3 +24,5 @@ For L-meta-10903, each of the deletions of vertex 0, 1, or 2 independently ruled
 (x3 AND x5) OR ((x3 OR x5) AND ((x0 OR x1) OR x6))
  OR (x6 AND (x1 OR x2)) OR (x4 AND (x0 OR x2))
 ```
+
+For L-meta-10757, deleting vertex 1 rules out nine binary gates with free complements. A twelve-gate expression for the original graph agrees on all 128 inputs. One term covers four edges at once, using `(x1 OR x6) AND (x4 OR x5)`. Together with the essentiality of vertex 1, these checks rule out a saving from one NOT. [Existing positive submission](https://github.com/open-goat/pequalnp-proofs/pull/15593)
