@@ -65,7 +65,7 @@ def exclude(t,basis,cost,binary,small,layouts,cap):
     raise RuntimeError(f"inconclusive {basis} search for {t:x} at {cost-1}")
 
 
-def verify(five,book,binary,orbit,cap):
+def verify(five,book,binary,orbit,cap,signed_next=None):
     small=bases(five)
     words=sorted(cat.antichains(5))
     listing=subprocess.run([str(orbit)],input="".join(f"{w:x}\n" for w in words),
@@ -74,6 +74,10 @@ def verify(five,book,binary,orbit,cap):
     ceiling=book["through"]
     stored={r["truth"]:r for r in book["classes"]}
     assert len(stored)==len(book["classes"])
+    next_rows={r["truth"]:r for r in signed_next["classes"]} if signed_next else {}
+    if signed_next:
+        assert signed_next["size"]==ceiling+1 and len(next_rows)==len(signed_next["classes"])
+    next_classes=next_labels=0
     layouts=subcubes();classes=Counter();labeled=Counter();visits=0
     for line in listing.stdout.splitlines():
         key,multiplicity=line.split();mult=int(multiplicity);t=int(key,16)
@@ -90,12 +94,21 @@ def verify(five,book,binary,orbit,cap):
         visits+=exclude(t,"full",f,binary,small,layouts,cap)
         if s>f:visits+=exclude(t,"signed",s,binary,small,layouts,cap)
         if m>s:visits+=exclude(t,"mono",m,binary,small,layouts,cap)
+        if signed_next and s>ceiling:
+            extra=next_rows.pop(key,None)
+            if extra:
+                assert extra["multiplicity"]==mult and len(extra["gates"])==ceiling+1
+                assert cat.eval_gates(6,extra["gates"],2)==t
+                next_classes+=1;next_labels+=mult
+            else:
+                visits+=exclude(t,"signed",ceiling+2,binary,small,layouts,cap)
         for name,size in [("full",f),("signed",s),("mono",m)]:
             classes[name,size]+=1;labeled[name,size]+=mult
-    assert not stored
+    assert not stored and not next_rows
     for k in range(5,ceiling+2):
         print(("above cutoff" if k==ceiling+1 else f"size {k}"),[(b,classes[b,k],labeled[b,k]) for b in ("mono","signed","full")],flush=True)
     print(f"{visits:,} bounded-search visits. All exclusions and witnesses checked.",flush=True)
+    if signed_next: print(f"Size {ceiling+1} with or without free complements: {next_classes} classes, {next_labels:,} labeled essential functions.",flush=True)
 
 
 if __name__=="__main__":
@@ -104,5 +117,7 @@ if __name__=="__main__":
     p.add_argument("orbits",type=Path)
     p.add_argument("--cap",type=int,default=100000000)
     args=p.parse_args()
+    extra=here/"signed-next.json"
     verify(json.loads((here.parent/"five-input-circuits/circuits.json").read_bytes()),
-           json.loads((here/"frontier.json").read_bytes()),args.search.resolve(),args.orbits.resolve(),args.cap)
+           json.loads((here/"frontier.json").read_bytes()),args.search.resolve(),args.orbits.resolve(),args.cap,
+           json.loads(extra.read_bytes()) if extra.exists() else None)

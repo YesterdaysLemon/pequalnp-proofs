@@ -1,6 +1,6 @@
-# Six-input monotone functions through eight gates
+# Six-input monotone circuits through nine AND/OR gates
 
-Every monotone function on six inputs computed with at most eight AND/OR gates and arbitrary free wire complements has an AND/OR circuit with the same or fewer gates. This also settles the project’s comparison for every six-input AND/OR/NOT circuit of total size at most nine. If such a circuit uses a NOT, it has at most eight binary gates. Circuits consisting entirely of AND/OR already meet the comparison.
+Every monotone function on six inputs computed with at most nine AND/OR gates and arbitrary free wire complements has an AND/OR circuit with the same or fewer gates. This also settles the project’s comparison for every six-input AND/OR/NOT circuit of total size at most ten. If such a circuit uses a NOT, it has at most nine binary gates. Circuits consisting entirely of AND/OR already meet the comparison.
 
 The computation partitions all 7,828,354 labeled monotone truth tables on six inputs. Of these, 7,785,062 depend on every input. Input permutations and De Morgan duality split the essential functions into 8,170 classes. Functions with an inessential input are covered by the complete smaller catalogue. [Five-input catalogue](../five-input-circuits/)
 
@@ -14,8 +14,11 @@ These counts include only functions depending on all six inputs. An intermediate
 | 6 | 37 | 21,360 | 37 | 37 | 21,360 |
 | 7 | 166 | 90,440 | 166 | 166 | 90,440 |
 | 8 | 319 | 261,928 | 319 | 322 | 266,248 |
+| 9 | 775 | 617,590 | 775 | Open in this catalogue | Open in this catalogue |
 
 The three additional full-basis classes have representatives `e888a080c8888080`, `e8a8c888e8a0c880`, and `eae8ea88eae80000`. Each contains 1,440 labeled functions. Each has an eight-gate circuit with XOR, and each requires at least nine AND/OR gates even with free complements. The data give explicit circuits for all 558 classes that can be computed with at most eight full-basis gates. Within each record, the sizes are in the order full binary, AND/OR with free complements, and AND/OR. A size recorded as 9 means at least 9. [Catalogue and witnesses](frontier.json)
+
+The nine-gate AND/OR table gives witnesses for the additional 775 classes. For each remaining representative the replay checks that a signed circuit with nine gates is impossible. [Nine-gate witnesses](signed-next.json)
 
 ## Verification
 
