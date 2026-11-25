@@ -18,11 +18,16 @@ def compare(mode, results, quick=False):
             return "certified" if published[key]["status"] == "UNSAT" else published[key]["status"]
     if set(published) != expected_keys or (not quick and set(results) != expected_keys):
         raise RuntimeError("Expected and recorded cases differ")
+    reference = json.loads((here / (mode + "-certificates.json")).read_bytes())
+    if set(reference) != expected_keys:
+        raise RuntimeError("Certificate manifest is incomplete")
     for key, record in results.items():
         if key not in expected_keys or record.get("reason", "certified") != expected(key):
             raise RuntimeError("Status mismatch for " + key)
         if "reason" not in record and (record.get("actions", 0) <= 0 or len(record.get("cnf_sha256", "")) != 64):
             raise RuntimeError("Incomplete certificate record for " + key)
+        if record.get("cnf_sha256") != reference[key].get("cnf_sha256"):
+            raise RuntimeError("Regenerated constraint system differs for " + key)
     if not results:
         raise RuntimeError("Empty replay")
     print("Compared", len(results), "cases against the published classifications.")
