@@ -4,6 +4,7 @@ These are proofs, experiments and partial results from assignments taken under t
 
 | Assignment | Result | Source |
 | --- | --- | --- |
+| L-meta-10590 | The seven-vertex graph costs exactly 13 gates with zero or one NOT. Two C++ searches give the lower bound. Lean checks the 13-gate circuit and general restriction and separation lemmas. | [Results and replay programs](L-meta-10590/) |
 | L-pcx-164 | The exact tree-like pigeonhole refutation needs 188 inferences and 45 distinct axioms. Two enumerations and a Lean-checked witness agree. An unrestricted counting argument gives 96 lines. | [Proofs, programs and certificates](L-pcx-164/) |
 | L-meta-2872 | The incidence circuit lower bound for all four-cycle-free bipartite graphs of matching number at most three, with no limit on the vertex count. Lean checks the six-cycle structure and gate-elimination lemmas. | [Argument and proofs](L-meta-2872/) |
 | L-meta-3457 | Lean checks a size-preserving clean-up of AND gates accepting at most one true edge. A second compiler optimizes a sufficient gate-count bound by minimum cut. | [Proof and compiler](L-meta-3457/) |
