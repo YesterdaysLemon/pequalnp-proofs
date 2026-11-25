@@ -1,4 +1,4 @@
-// Exact bounded circuit synthesis for nonconstant monotone truth tables with two through six essential inputs.
+// Exact bounded circuit synthesis for nonconstant truth tables with two through six essential inputs.
 // The signed and full bases have free complements. Fan-out is unrestricted.
 #include <algorithm>
 #include <array>
@@ -225,11 +225,11 @@ int main(int argc,char **argv) {
     std::string basis=argv[3];
     int low=std::stoi(argv[4]), high=std::stoi(argv[5]), domains=std::stoi(argv[6]);
     auto limit=std::stoull(argv[7]);
-    if ((whole<63 && (table>>(whole+1))) || value(0) || !value(whole) || low<0 || high>18 || domains<0 || !limit) return 2;
+    if ((whole<63 && (table>>(whole+1))) || value(0) || (basis=="mono" && !value(whole)) || low<0 || high>18 || domains<0 || !limit) return 2;
     if (basis!="mono" && basis!="signed" && basis!="full") return 2;
     int dependent=0;
     for (int r=0;r<=whole;++r) for (int i=0;i<vertexCount;++i) if (!(r & (1<<i))) {
-        if (value(r) && !value(r|(1<<i))) return 2;
+        if (basis=="mono" && value(r) && !value(r|(1<<i))) return 2;
         if (value(r)!=value(r|(1<<i))) dependent |= 1<<i;
     }
     if (dependent!=whole) return 2;

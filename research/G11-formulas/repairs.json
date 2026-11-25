@@ -1,0 +1,230 @@
+{
+  "cover_number": 7,
+  "extra": {
+    "0": 65519,
+    "1": 17
+  },
+  "repair_distribution": {
+    "0": 32,
+    "1": 2816,
+    "2": 20037,
+    "3": 29599,
+    "4": 11491,
+    "5": 1491,
+    "6": 69,
+    "7": 1
+  },
+  "by_deleted_size": {
+    "0": {
+      "0": 1
+    },
+    "1": {
+      "0": 5,
+      "1": 11
+    },
+    "2": {
+      "0": 10,
+      "1": 94,
+      "2": 16
+    },
+    "3": {
+      "0": 10,
+      "1": 346,
+      "2": 200,
+      "3": 4
+    },
+    "4": {
+      "0": 5,
+      "1": 694,
+      "2": 1050,
+      "3": 71
+    },
+    "5": {
+      "0": 1,
+      "1": 814,
+      "2": 3019,
+      "3": 532,
+      "4": 2
+    },
+    "6": {
+      "1": 568,
+      "2": 5206,
+      "3": 2200,
+      "4": 34
+    },
+    "7": {
+      "1": 232,
+      "2": 5496,
+      "3": 5463,
+      "4": 249
+    },
+    "8": {
+      "1": 52,
+      "2": 3487,
+      "3": 8313,
+      "4": 1016,
+      "5": 2
+    },
+    "9": {
+      "1": 5,
+      "2": 1289,
+      "3": 7656,
+      "4": 2467,
+      "5": 23
+    },
+    "10": {
+      "2": 254,
+      "3": 4072,
+      "4": 3557,
+      "5": 125
+    },
+    "11": {
+      "2": 20,
+      "3": 1153,
+      "4": 2841,
+      "5": 354
+    },
+    "12": {
+      "3": 135,
+      "4": 1143,
+      "5": 539,
+      "6": 3
+    },
+    "13": {
+      "4": 182,
+      "5": 362,
+      "6": 16
+    },
+    "14": {
+      "5": 86,
+      "6": 34
+    },
+    "15": {
+      "6": 16
+    },
+    "16": {
+      "7": 1
+    }
+  },
+  "exceptions": [
+    {
+      "removed": "8f00",
+      "residual": 5,
+      "repair": 3,
+      "residual_cover": 199,
+      "repaired_cover": 503
+    },
+    {
+      "removed": "af00",
+      "residual": 5,
+      "repair": 3,
+      "residual_cover": 143,
+      "repaired_cover": 1455
+    },
+    {
+      "removed": "af40",
+      "residual": 4,
+      "repair": 4,
+      "residual_cover": 135,
+      "repaired_cover": 503
+    },
+    {
+      "removed": "afc0",
+      "residual": 4,
+      "repair": 4,
+      "residual_cover": 135,
+      "repaired_cover": 503
+    },
+    {
+      "removed": "bf40",
+      "residual": 4,
+      "repair": 4,
+      "residual_cover": 135,
+      "repaired_cover": 503
+    },
+    {
+      "removed": "cf00",
+      "residual": 5,
+      "repair": 3,
+      "residual_cover": 79,
+      "repaired_cover": 639
+    },
+    {
+      "removed": "cf80",
+      "residual": 4,
+      "repair": 4,
+      "residual_cover": 71,
+      "repaired_cover": 503
+    },
+    {
+      "removed": "cfc0",
+      "residual": 4,
+      "repair": 4,
+      "residual_cover": 71,
+      "repaired_cover": 503
+    },
+    {
+      "removed": "df80",
+      "residual": 4,
+      "repair": 4,
+      "residual_cover": 71,
+      "repaired_cover": 503
+    },
+    {
+      "removed": "ef00",
+      "residual": 5,
+      "repair": 3,
+      "residual_cover": 79,
+      "repaired_cover": 639
+    },
+    {
+      "removed": "ef40",
+      "residual": 4,
+      "repair": 4,
+      "residual_cover": 135,
+      "repaired_cover": 503
+    },
+    {
+      "removed": "ef80",
+      "residual": 4,
+      "repair": 4,
+      "residual_cover": 71,
+      "repaired_cover": 503
+    },
+    {
+      "removed": "efc0",
+      "residual": 4,
+      "repair": 4,
+      "residual_cover": 71,
+      "repaired_cover": 503
+    },
+    {
+      "removed": "ff00",
+      "residual": 4,
+      "repair": 4,
+      "residual_cover": 15,
+      "repaired_cover": 639
+    },
+    {
+      "removed": "ff40",
+      "residual": 4,
+      "repair": 4,
+      "residual_cover": 15,
+      "repaired_cover": 639
+    },
+    {
+      "removed": "ff80",
+      "residual": 4,
+      "repair": 4,
+      "residual_cover": 15,
+      "repaired_cover": 639
+    },
+    {
+      "removed": "ffc0",
+      "residual": 3,
+      "repair": 5,
+      "residual_cover": 7,
+      "repaired_cover": 503
+    }
+  ]
+}

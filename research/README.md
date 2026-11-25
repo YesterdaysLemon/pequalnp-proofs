@@ -4,6 +4,8 @@ These are proofs, experiments and partial results from assignments taken under t
 
 | Assignment | Result | Source |
 | --- | --- | --- |
+| Eleven-vertex graph G11 | Every AND/OR formula for the graph uses at least 22 gates. A 22-gate witness and an LRAT certificate establish the exact size. Searches also exclude a single reusable disjunction or a shared subformula of up to four gates and give the cover-repair cost for all 65,536 edge-deletion sets. | [Proof, certificate and replay](G11-formulas/) |
+| All four-input Boolean functions | The maximum over the 65,536 labeled functions is seven arbitrary gates or ten signed AND/OR gates. The lookup recovers both minima and witnesses for each table. | [Catalogue and lookup](four-input-boolean/) |
 | Five-input majority | The vote needs nine unrestricted binary gates or ten AND/OR gates, even with free complements. Lean proves that both sizes grow by exactly one with every fresh AND/OR substitution. | [Proof and witness circuits](majority-five/) |
 | Six-input monotone functions | A native replay checks all 7,828,354 labeled functions. It classifies the unrestricted minimum through eight and the AND/OR minimum, with or without free complements, through nine. | [Witnesses, counts and replay](six-input-frontier/) |
 | L-meta-9690 | Two Lean-checked 109-line cutting-planes refutations for five pigeons and four holes. The search rules out several bounded constructions for shortening the last hole. The 100-line target remains open here. | [Refutations and search](L-meta-9690/) |
