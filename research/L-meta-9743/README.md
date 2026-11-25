@@ -53,7 +53,15 @@ The finite family check uses Python's standard library and a C++20 compiler. The
 python3 verify-cover-family.py scratch
 g++ -O3 -std=c++20 punctured_cycles.cpp -o count-cycles
 ./count-cycles
-PYTHONPATH=../L-meta-4197 python3 punctured_repair.py --seeds 24
 ```
 
-For the Lean files, use the project's pinned Lake toolchain. Place `CycleLifting.lean` and `PuncturedPlane.lean` in the same Lean project and build the former before checking the latter.
+The optional whole-plane repair experiment reuses the earlier plane search. A checkout of the consolidated research branch contains both directories. From `research/L-meta-9743` run `PYTHONPATH=../L-meta-4197 python3 punctured_repair.py --seeds 24`. [Consolidated research branch](https://github.com/YesterdaysLemon/pequalnp-proofs/tree/research/contributor-notes/research)
+
+To check both Lean files, start in the repository's `lean` directory with its pinned toolchain.
+
+```sh
+src=$(cd ../research/L-meta-9743 && pwd)
+lake build PEqualNP.MetaComplexity.L106 PEqualNP.MetaComplexity.Helpers.PermInputs PEqualNP.MetaComplexity.Helpers.CoverCircuitList
+lake env lean -R "$src" -o .lake/build/lib/lean/CycleLifting.olean "$src/CycleLifting.lean"
+lake env lean -R "$src" "$src/PuncturedPlane.lean"
+```
