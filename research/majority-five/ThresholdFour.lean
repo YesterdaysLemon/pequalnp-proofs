@@ -1,0 +1,337 @@
+import SearchFrontier
+
+namespace ThresholdFour
+open FullSearch LiveRestriction
+
+def rows : Array Nat := #[0,0,0,0,0,1,1,1,1,1,2,2,2,2,2,3,3,3,3,3,4,4,4,4,4,5,5,5,5,5,6,6,6,6,6,8,8,8,8,8,9,9,9,9,9,10,10,10,10,10,12,12,12,12,12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,11,13,14,15,7,11,13,14,15,7,11,13,14,15,7,11,13,14,15,7,11,13,14,15,7,11,13,14,15,7,11,13,14,15,7,11,13,14,15,7,11,13,14,15,7,11,13,14,15,7,11,13,14,15,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7]
+def inputs : List W := [0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,
+  0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,
+  0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000,
+  0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000]
+
+def child0 : Node := (1,[0xffffffffffffffffffffffffffffffffffffffffffffffffffce739ce739ce7300000000000000000000000000000000000000000000000000000000000f8000,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child0 : optimized 5 child0.1 child0.2 = false := by decide +kernel
+
+def child1 : Node := (1,[0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000003ff07fe0fffe0,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child1 : optimized 5 child1.1 child1.2 = false := by decide +kernel
+
+def child2 : Node := (1,[0x1084210842108400000000000000000000000000000000000000000000000000001f003e0003e0,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child2 : optimized 5 child2.1 child2.2 = false := by decide +kernel
+
+def child3 : Node := (1,[0x210842108421080000000000000000000000000000000000000000000000000003e007c0007c00,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child3 : optimized 5 child3.1 child3.2 = false := by decide +kernel
+
+def child4 : Node := (2,[0x318c6318c6318c0000000000000000000000000000000000000000000000000003ff07fe007fe0,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child4 : optimized 5 child4.1 child4.2 = false := by decide +kernel
+
+def child5 : Node := (2,[0x318c6318c6318c0000000000000000000000000000000000000000000000000003ff07fe007fe0,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child5 : optimized 5 child5.1 child5.2 = false := by decide +kernel
+
+def child6 : Node := (1,[0x318c6318c6318c0000000000000000000000000000000000000000000000000003ff07fe007fe0,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child6 : optimized 5 child6.1 child6.2 = false := by decide +kernel
+
+def child7 : Node := (1,[0xffffffffffffffffffffffffffffffffffffffffffffffffffd6b5ad6b5ad6b5000000000000000000000000000000000000000000000000000000003e000000,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child7 : optimized 5 child7.1 child7.2 = false := by decide +kernel
+
+def child8 : Node := (1,[0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff000000000000000000000000000000000000000000000000007c1f07ffff83e0,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child8 : optimized 5 child8.1 child8.2 = false := by decide +kernel
+
+def child9 : Node := (1,[0x842108421084200000000000000000000000000000000000000000000000000001f00000f83e0,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child9 : optimized 5 child9.1 child9.2 = false := by decide +kernel
+
+def child10 : Node := (1,[0x21084210842108000000000000000000000000000000000000000000000000007c0007c1f00000,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child10 : optimized 5 child10.1 child10.2 = false := by decide +kernel
+
+def child11 : Node := (2,[0x294a5294a5294a000000000000000000000000000000000000000000000000007c1f07c1ff83e0,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child11 : optimized 5 child11.1 child11.2 = false := by decide +kernel
+
+def child12 : Node := (2,[0x294a5294a5294a000000000000000000000000000000000000000000000000007c1f07c1ff83e0,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child12 : optimized 5 child12.1 child12.2 = false := by decide +kernel
+
+def child13 : Node := (1,[0x294a5294a5294a000000000000000000000000000000000000000000000000007c1f07c1ff83e0,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child13 : optimized 5 child13.1 child13.2 = false := by decide +kernel
+
+def child14 : Node := (1,[0x5ad6b5ad6b5ad600000000000000000000000000000000000000000000000000001f0000000000,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child14 : optimized 5 child14.1 child14.2 = false := by decide +kernel
+
+def child15 : Node := (1,[0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff000000000000000000000000000000000000000000000000007ffff83e0f83e0,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child15 : optimized 5 child15.1 child15.2 = false := by decide +kernel
+
+def child16 : Node := (1,[0xffffffffffffffffffffffffffffffffffffffffffffffffff84210842108421000000000000000000000000000000000000000000000000000000003e0f83e0,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child16 : optimized 5 child16.1 child16.2 = false := by decide +kernel
+
+def child17 : Node := (1,[0x21084210842108000000000000000000000000000000000000000000000000007fe0f800000000,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child17 : optimized 5 child17.1 child17.2 = false := by decide +kernel
+
+def child18 : Node := (2,[0xffffffffffffffffffffffffffffffffffffffffffffffffffa5294a5294a529000000000000000000000000000000000000000000000000007fe0f83e0f83e0,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child18 : optimized 5 child18.1 child18.2 = false := by decide +kernel
+
+def child19 : Node := (2,[0xffffffffffffffffffffffffffffffffffffffffffffffffffa5294a5294a529000000000000000000000000000000000000000000000000007fe0f83e0f83e0,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child19 : optimized 5 child19.1 child19.2 = false := by decide +kernel
+
+def child20 : Node := (1,[0xffffffffffffffffffffffffffffffffffffffffffffffffffa5294a5294a529000000000000000000000000000000000000000000000000007fe0f83e0f83e0,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child20 : optimized 5 child20.1 child20.2 = false := by decide +kernel
+
+def child21 : Node := (1,[0xffffffffffffffffffffffffffffffffffffffffffffffffffe739ce739ce73900000000000000000000000000000000000000000000000000000007c0000000,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child21 : optimized 5 child21.1 child21.2 = false := by decide +kernel
+
+def child22 : Node := (1,[0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff000000000000000000000000000000000000000000000000007fe007fffffc00,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child22 : optimized 5 child22.1 child22.2 = false := by decide +kernel
+
+def child23 : Node := (1,[0x84210842108420000000000000000000000000000000000000000000000000003e000000ffc00,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child23 : optimized 5 child23.1 child23.2 = false := by decide +kernel
+
+def child24 : Node := (1,[0x10842108421084000000000000000000000000000000000000000000000000007c00003ff00000,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child24 : optimized 5 child24.1 child24.2 = false := by decide +kernel
+
+def child25 : Node := (2,[0x18c6318c6318c6000000000000000000000000000000000000000000000000007fe0003ffffc00,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child25 : optimized 5 child25.1 child25.2 = false := by decide +kernel
+
+def child26 : Node := (2,[0x18c6318c6318c6000000000000000000000000000000000000000000000000007fe0003ffffc00,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child26 : optimized 5 child26.1 child26.2 = false := by decide +kernel
+
+def child27 : Node := (1,[0x18c6318c6318c6000000000000000000000000000000000000000000000000007fe0003ffffc00,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child27 : optimized 5 child27.1 child27.2 = false := by decide +kernel
+
+def child28 : Node := (1,[0x6b5ad6b5ad6b5a0000000000000000000000000000000000000000000000000003e00000000000,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child28 : optimized 5 child28.1 child28.2 = false := by decide +kernel
+
+def child29 : Node := (1,[0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff000000000000000000000000000000000000000000000000007fffffc00ffc00,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child29 : optimized 5 child29.1 child29.2 = false := by decide +kernel
+
+def child30 : Node := (1,[0xffffffffffffffffffffffffffffffffffffffffffffffffff8421084210842100000000000000000000000000000000000000000000000000000007c00ffc00,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child30 : optimized 5 child30.1 child30.2 = false := by decide +kernel
+
+def child31 : Node := (1,[0x10842108421084000000000000000000000000000000000000000000000000007c1ff800000000,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child31 : optimized 5 child31.1 child31.2 = false := by decide +kernel
+
+def child32 : Node := (2,[0xffffffffffffffffffffffffffffffffffffffffffffffffff94a5294a5294a5000000000000000000000000000000000000000000000000007c1fffc00ffc00,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child32 : optimized 5 child32.1 child32.2 = false := by decide +kernel
+
+def child33 : Node := (2,[0xffffffffffffffffffffffffffffffffffffffffffffffffff94a5294a5294a5000000000000000000000000000000000000000000000000007c1fffc00ffc00,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child33 : optimized 5 child33.1 child33.2 = false := by decide +kernel
+
+def child34 : Node := (1,[0xffffffffffffffffffffffffffffffffffffffffffffffffff94a5294a5294a5000000000000000000000000000000000000000000000000007c1fffc00ffc00,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child34 : optimized 5 child34.1 child34.2 = false := by decide +kernel
+
+def child35 : Node := (1,[0x739ce739ce739c000000000000000000000000000000000000000000000000007c000000000000,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child35 : optimized 5 child35.1 child35.2 = false := by decide +kernel
+
+def child36 : Node := (1,[0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff000000000000000000000000000000000000000000000000007ffffffff00000,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child36 : optimized 5 child36.1 child36.2 = false := by decide +kernel
+
+def child37 : Node := (1,[0xffffffffffffffffffffffffffffffffffffffffffffffffff8421084210842100000000000000000000000000000000000000000000000000000007fff00000,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child37 : optimized 5 child37.1 child37.2 = false := by decide +kernel
+
+def child38 : Node := (1,[0x84210842108420000000000000000000000000000000000000000000000000003fff800000000,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child38 : optimized 5 child38.1 child38.2 = false := by decide +kernel
+
+def child39 : Node := (2,[0xffffffffffffffffffffffffffffffffffffffffffffffffff8c6318c6318c630000000000000000000000000000000000000000000000000003fffffff00000,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child39 : optimized 5 child39.1 child39.2 = false := by decide +kernel
+
+def child40 : Node := (2,[0xffffffffffffffffffffffffffffffffffffffffffffffffff8c6318c6318c630000000000000000000000000000000000000000000000000003fffffff00000,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child40 : optimized 5 child40.1 child40.2 = false := by decide +kernel
+
+def child41 : Node := (1,[0xffffffffffffffffffffffffffffffffffffffffffffffffff8c6318c6318c630000000000000000000000000000000000000000000000000003fffffff00000,0xfffffffffffffffffffffffffffffffffffffffffffffffffff7bdef7bdef7bd000000000000000000000000000000000000000000000000007c0007fff00000,0x7bdef7bdef7bde000000000000000000000000000000000000000000000000007ffff800000000,0xffffffffffffffffffffffffffffffffffffffffffffffffffdef7bdef7bdef700000000000000000000000000000000000000000000000000001f003e0f83e0,0xffffffffffffffffffffffffffffffffffffffffffffffffffef7bdef7bdef7b0000000000000000000000000000000000000000000000000003e007c00ffc00])
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem no_child41 : optimized 5 child41.1 child41.2 = false := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem root_nodes : nodes 3 inputs = [child0,child1,child2,child3,child4,child5,child6,child7,child8,child9,child10,child11,child12,child13,child14,child15,child16,child17,child18,child19,child20,child21,child22,child23,child24,child25,child26,child27,child28,child29,child30,child31,child32,child33,child34,child35,child36,child37,child38,child39,child40,child41] := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem excluded : search 6 inputs = false := by
+  apply closed_from_root (by decide +kernel)
+  apply next_false (by decide +kernel)
+  change ∀ n ∈ nodes 3 inputs, optimized 5 n.1 n.2 = false
+  rw [root_nodes]
+  intro n hn
+  simp only [List.mem_cons,List.not_mem_nil,or_false] at hn
+  rcases hn with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
+  · exact no_child0
+  · exact no_child1
+  · exact no_child2
+  · exact no_child3
+  · exact no_child4
+  · exact no_child5
+  · exact no_child6
+  · exact no_child7
+  · exact no_child8
+  · exact no_child9
+  · exact no_child10
+  · exact no_child11
+  · exact no_child12
+  · exact no_child13
+  · exact no_child14
+  · exact no_child15
+  · exact no_child16
+  · exact no_child17
+  · exact no_child18
+  · exact no_child19
+  · exact no_child20
+  · exact no_child21
+  · exact no_child22
+  · exact no_child23
+  · exact no_child24
+  · exact no_child25
+  · exact no_child26
+  · exact no_child27
+  · exact no_child28
+  · exact no_child29
+  · exact no_child30
+  · exact no_child31
+  · exact no_child32
+  · exact no_child33
+  · exact no_child34
+  · exact no_child35
+  · exact no_child36
+  · exact no_child37
+  · exact no_child38
+  · exact no_child39
+  · exact no_child40
+  · exact no_child41
+
+open Classical in
+theorem live_lower {s : Finset Paired.Wire} {y : Paired.Wire} {k : Nat}
+    (r : Samples) (out : pack r y = goal)
+    (cover : project (pack r) 0 s ⊆ inputs.toFinset) (h : live Paired.ops y k s) :
+    7 + zeroCount (pack r) 0 s ≤ k := by
+  have nz : pack r y ≠ 0 := out ▸ goal_nezero
+  obtain ⟨l,bd,run⟩ := project_live Paired.ops extended (pack r) 0
+    (fun a b z m eq => extended_simple (pack_preserves r a b z m) eq) (pack_preserves r) nz h
+  obtain ⟨t,sub,lv⟩ := compress run
+  have built := build_subset (live_build (clean_live nz lv).2) (sub.trans cover)
+  have lower : 6 < l := by
+    by_contra! le
+    have yes := search_complete (Or.inl out) 6 inputs (by decide +kernel) (extend_steps built le)
+    simp [excluded] at yes
+  omega
+
+end ThresholdFour
