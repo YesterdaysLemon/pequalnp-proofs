@@ -13,6 +13,8 @@ For a gate $g$, let $S_g$ be the set of genuine edges whose two endpoints alone 
 
 The checked declarations are `prune` and `exactIfSparse`. They use the project’s actual `Circuit.wires` evaluator and allow sharing, isolated vertices, arbitrary output indices and empty relations. [Lean source](FlagPruning.lean)
 
+There is also a graph-level consequence of the earlier circuit-size work. Assign each edge to one end in a minimum vertex cover, build the star at each used cover vertex, and OR the stars together. On a nonempty bipartite graph with $m$ edges and matching number $k$, this gives a clean circuit with at most $m+k-1$ gates by Kőnig’s theorem. The project’s forest lower bound and the earlier matching-number-three argument each show that every input circuit in their respective graph classes is at least this large. Thus the unrestricted cleaning conclusion also holds on all forests and on all four-cycle-free bipartite graphs of matching number at most three, even when individual dirty ANDs accept many true edges. The empty graph has a constant-false realization with zero gates using the project’s missing-output convention. [Lower-bound argument and sources](https://github.com/YesterdaysLemon/pequalnp-proofs/tree/8201da3d0888a76d9b39e16de8295b4076668315/research/L-meta-2872)
+
 ## Why a one-gate rewrite stops at two flags
 
 Take the matching $p_0l_0,p_1l_1$. A seven-gate circuit first builds $(p_0 \lor p_1) \land (l_0 \lor l_1)$, then intersects it with $p_0 \lor l_1$ and $p_1 \lor l_0$. This computes the matching on all 16 inputs, and every AND rejects every singleton. The first AND fires on both matching edges and on both off-diagonal pairs.
