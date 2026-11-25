@@ -1,0 +1,16 @@
+{
+  "result": {
+    "order": 2,
+    "flags": 21,
+    "negative_inputs": 37,
+    "total": 168,
+    "max_rectangle": 6,
+    "leaves": 28,
+    "gates": 27
+  },
+  "weights": {
+    "5153": -1,
+    "5156": 1,
+    "6177": 2
+  }
+}
