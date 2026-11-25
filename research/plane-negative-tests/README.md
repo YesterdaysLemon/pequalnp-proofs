@@ -14,7 +14,7 @@ Number the points and lines separately modulo 21. Start with points 0, 1, 2, 6, 
 
 The test family is irredundant. In the original set, point pair {0,18} belongs to no other member. Its images give a private pair for each of the 42 tests. Lean verifies pair coverage, independence, the private pairs, and the transport of circuit gates under the relabelings. A counterexample firing on any independent set can be relabeled to fire on the posted input at precisely the same size. [Finite geometry](Plane4Tests.lean) · [Circuit transport](Plane4Transport.lean)
 
-Using other independent sets reduces the suite to **17 tests**. At least eleven are necessary. The corresponding optimum for the Fano plane is exactly eight. [Counting argument and explicit suites](test-counts.md)
+Using other independent sets reduces the suite to **17 tests**. At least eleven are necessary. The corresponding optimum for the Fano plane is exactly eight. For order three, a rank argument gives a lower bound of eleven and an explicit family uses 13 tests. [Counting argument](test-counts.md) · [Order-three rank proof and tests](order-three-tests.md)
 
 ## Formula bounds in three projective planes
 
@@ -37,6 +37,7 @@ With the repository's pinned Lean toolchain and mathlib installed, run the comma
 ```sh
 bash research/plane-negative-tests/check.sh
 python3 research/plane-negative-tests/verify-tests.py
+python3 research/plane-negative-tests/verify-order-three.py
 python3 research/plane-negative-tests/plane-dual.py 2 research/plane-negative-tests/weights-2.json --check
 python3 research/plane-negative-tests/plane-dual.py 3 research/plane-negative-tests/weights-3.json --check
 python3 research/plane-negative-tests/plane-dual.py 4 research/plane-negative-tests/weights-4.json --check
