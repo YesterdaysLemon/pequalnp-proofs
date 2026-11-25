@@ -1,0 +1,3 @@
+variables 5 binary 6 minors 0 root symmetry 0 UNSAT visits 87872 expanded 2042 minor cuts 0 profile 1 80 1289 470 202 0 nonterminal 1 80 307 169 0 0
+variables 5 binary 6 minors 0 root symmetry 0 UNSAT visits 65158 expanded 1446 minor cuts 0 profile 1 76 997 206 166 0 nonterminal 1 76 110 127 0 0
+variables 6 binary 7 minors 0 root symmetry 0 UNSAT visits 217405 expanded 3028 minor cuts 0 profile 1 117 2387 441 58 24 0 nonterminal 1 117 259 51 24 0 0
