@@ -4,6 +4,7 @@ These are proofs, experiments and partial results from assignments taken under t
 
 | Assignment | Result | Source |
 | --- | --- | --- |
+| L-meta-13719 | For every $n\ge2$, the conjunction of all $a_i$ OR the matching terms $a_i b_i$ costs exactly $3n-2$ gates. Lean checks the lower bound over all 16 binary operations with free unary gates and constructs a matching monotone circuit. The posted six-input function is the case $n=3$. | [Family proof and independent audit](L-meta-13719/) · [Six-input submission](https://github.com/open-goat/pequalnp-proofs/pull/18019) |
 | L-meta-10590 | The seven-vertex graph costs exactly 13 gates with zero or one NOT. The merged Lean proof checks the posted comparison using 374 six-vertex states and two smaller certificates. | [Merged proof](https://github.com/open-goat/pequalnp-proofs/pull/15586) · [Results and replay programs](L-meta-10590/) |
 | L-meta-12072 | An eleven-gate monotone circuit matches or beats every AND/OR/NOT circuit for a six-input truth table. The merged Lean proof uses a nine-gate lower bound on a five-input restriction. | [Merged proof](https://github.com/open-goat/pequalnp-proofs/pull/16111) · [Derivation and independent search](L-meta-12072/) |
 | L-meta-12075 | A common restriction gives a ten-binary-gate lower bound across 226 monotone functions. Through size eleven, exhaustive search and checked witnesses establish equal general and monotone minima for 88 of them. The opposite of the assigned claim is proved in Lean. | [Family theorem, circuits and classification](L-meta-12075/) |
