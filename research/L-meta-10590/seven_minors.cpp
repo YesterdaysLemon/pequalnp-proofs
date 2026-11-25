@@ -3,7 +3,6 @@
 #include <array>
 #include <bit>
 #include <cstdint>
-#include <fstream>
 #include <iostream>
 #include <stdexcept>
 #include <string>
@@ -114,9 +113,10 @@ struct Search {
                     candidate.push_back(z);
                 }
                 std::sort(candidate.begin(), candidate.end());
-                W meta = k;
+                candidate.push_back(W(k));
+                W meta = 0;
                 if (!ms.empty()) for (int i=0;i<n;++i)
-                    meta |= W(ms[i].lost) << (4 + 3*sym[g][i]);
+                    meta |= W(ms[i].lost) << (5*sym[g][i]);
                 candidate.push_back(meta);
                 if (best.empty() || candidate < best) best = candidate;
             }
@@ -153,13 +153,6 @@ struct Search {
     void run() {
         std::vector<Minor> ms;
         if (signed_prune == 1 && n == 6) for (W v : literal) ms.push_back({~v,8,0});
-        if (signed_prune == 2 && n == 6) {
-            std::ifstream file("work/seven-projections.txt");
-            if (!file) throw std::runtime_error("expected work/seven-projections.txt");
-            W mask; int lower;
-            while (file >> std::hex >> mask >> std::dec >> lower)
-                if (lower >= 6) ms.push_back({mask,lower,0});
-        }
         bool sat = dfs(literal, start, ms);
         std::cout << "variables " << n << " binary " << start << " minors " << ms.size()
                   << " root symmetry " << root_sym << " " << (sat ? "SAT" : "UNSAT") << " visits " << visits
@@ -172,9 +165,16 @@ struct Search {
 };
 int main(int argc, char **argv) {
     if (argc == 5 && std::string(argv[1]) == "table") {
-        Search(std::stoi(argv[2]),std::stoull(argv[3],nullptr,16),std::stoi(argv[4])).run();
+        int n = std::stoi(argv[2]), budget = std::stoi(argv[4]);
+        if (n < 1 || n > 6 || budget < 0 || budget >= 20) return 2;
+        Search(n,std::stoull(argv[3],nullptr,16),budget).run();
         return 0;
     }
     if (argc != 5) {std::cerr << "use: search DELETED_OR_-1 BINARY_BUDGET MINOR_PRUNE ROOT_SYMMETRY\n"; return 2;}
-    Search(std::stoi(argv[1]),std::stoi(argv[2]),std::stoi(argv[3]),std::stoi(argv[4])).run();
+    int removed = std::stoi(argv[1]), budget = std::stoi(argv[2]);
+    int prune = std::stoi(argv[3]), symmetry = std::stoi(argv[4]);
+    if ((removed != -1 && (removed < 0 || removed > 6 || removed == 4)) ||
+        budget < 0 || budget >= 20 || prune < 0 || prune > 1 || symmetry < 0 || symmetry > 2)
+        return 2;
+    Search(removed,budget,prune,symmetry).run();
 }
